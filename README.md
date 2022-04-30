@@ -1,4 +1,4 @@
-## Simple mimimal gtk4 + golang template
+## Simple minimal gtk4 + golang template
 
 To use start with:
 
@@ -7,7 +7,7 @@ To use start with:
 git clone --branch=master --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_PROJECT:-.}
 ```
 
-## Simple mimimal gtk4 + golang template with `.ui` file from [Cambalache](https://flathub.org/apps/details/ar.xjuan.Cambalache)
+## Simple minimal gtk4 + golang template with `.ui` file from [Cambalache](https://flathub.org/apps/details/ar.xjuan.Cambalache)
 
 To use start with:
 
@@ -18,8 +18,8 @@ git clone --branch=ui --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_
 
 ### Preview other branches
 
-[master](/psydvl/gotk4-template/tree/master)
-[ui](/psydvl/gotk4-template/tree/master)
+| [master](/psydvl/gotk4-template/tree/master) | [ui](/psydvl/gotk4-template/tree/master) |
+| --- | --- |
 
 ### How master/ui branch creating:
 
