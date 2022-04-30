@@ -18,7 +18,7 @@ git clone --branch=ui --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_
 
 ### Preview other branches
 
-| [master](/psydvl/gotk4-template/tree/master) | [ui](/psydvl/gotk4-template/tree/master) |
+| [master](../../tree/master) | [ui](../../tree/master) |
 | --- | --- |
 
 ### How master/ui branch creating:
