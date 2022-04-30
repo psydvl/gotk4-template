@@ -36,6 +36,10 @@ type sTest struct {
 	header *gtk.HeaderBar
 }
 
+func (t *sTest) Show() {
+	t.window.Show()
+}
+
 func newTest(ctx context.Context, app *gtk.Application) *sTest {
 	t := sTest{Application: app}
 
@@ -46,8 +50,4 @@ func newTest(ctx context.Context, app *gtk.Application) *sTest {
 	t.window.SetTitlebar(t.header)
 
 	return &t
-}
-
-func (t *sTest) Show() {
-	t.window.Show()
 }
