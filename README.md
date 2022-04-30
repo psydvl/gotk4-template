@@ -16,21 +16,20 @@ To use start with:
 git clone --branch=ui --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_PROJECT:-.}
 ```
 
+### Preview other branches
+
+[master](/psydvl/gotk4-template/tree/master)
+[ui](/psydvl/gotk4-template/tree/master)
+
 ### How master/ui branch creating:
+
+We let last commit to be empty then command `git clone --depth 1` can take only it with right message locally, coexist with editing history in server
 
 ``` shell
 BRANCH=master
 BRANCH=${BRANCH:-ui} # set to ui if empty, just copy without first line to use
-CHANGELOG="changelog"
-if [ $BRANCH != "master" ]
-then
-	CHANGELOG="$CHANGELOG-$BRANCH"
-fi
-git checkout $CHANGELOG
-git branch -d $BRANCH
-git switch --orphan $BRANCH
+git checkout $BRANCH 
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --prune-empty
 git commit --allow-empty -m "Init with gotk4 minimal template psydvl/gotk4-template"
-git merge --squash --allow-unrelated-histories $CHANGELOG
-git commit --amend --no-edit
 git push -u origin $BRANCH --force-with-lease
 ```
