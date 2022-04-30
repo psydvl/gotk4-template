@@ -3,19 +3,34 @@
 To use start with:
 
 ``` shell
-PROJECT="."
-#PROJECT="Project_name" # to init in new child directory instead
-git clone --branch=master --depth=1 https://github.com/psydvl/gotk4-template $PROJECT
+#GOTK_PROJECT="Project_name" # set to init in new child directory instead of current
+git clone --branch=master --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_PROJECT:-.}
 ```
 
-### How master branch creating:
+## Simple mimimal gtk4 + golang template with `.ui` file from [Cambalache](https://flathub.org/apps/details/ar.xjuan.Cambalache)
+
+To use start with:
 
 ``` shell
-git checkout changelog
-git branch -D master
-git switch --orphan master
+#GOTK_PROJECT="Project_name" # set to init in new child directory instead of current
+git clone --branch=ui --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_PROJECT:-.}
+```
+
+### How master/ui branch creating:
+
+``` shell
+BRANCH=master
+BRANCH=${BRANCH:-ui} # set to ui if empty, just copy without first line to use
+CHANGELOG="changelog"
+if [ $BRANCH != "master" ]
+then
+	CHANGELOG="$CHANGELOG-$BRANCH"
+fi
+git checkout $CHANGELOG
+git branch -d $BRANCH
+git switch --orphan $BRANCH
 git commit --allow-empty -m "Init with gotk4 minimal template psydvl/gotk4-template"
-git merge --squash --allow-unrelated-histories changelog
+git merge --squash --allow-unrelated-histories $CHANGELOG
 git commit --amend --no-edit
-git push -u origin master --force-with-lease
+git push -u origin $BRANCH --force-with-lease
 ```
