@@ -8,16 +8,14 @@ else
 fi
 
 for BRANCH in "${array[@]}"; do
-	CHANGELOG="changelog"
-	if [ $BRANCH != "master" ]
-	then
-		CHANGELOG="$CHANGELOG-$BRANCH"
-	fi
+	CHANGELOG="changelog-$BRANCH"
 	git checkout $CHANGELOG
 	git branch -D $BRANCH
 	git switch --orphan $BRANCH
 	git commit --allow-empty -m "Init with gotk4 minimal template psydvl/gotk4-template"
 	git merge --squash --allow-unrelated-histories $CHANGELOG
 	git commit --amend --no-edit
-	git push -u origin $BRANCH --force-with-lease
+	git push -u origin $BRANCH --force-with-lease || true
 done
+
+git checkout docs
