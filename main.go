@@ -19,10 +19,12 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
 
+	var instance sApplication
+
 	app := gtk.NewApplication("com.example.test", 0)
 	app.ConnectActivate(func() {
-		t := newTest(ctx, app)
-		t.Show()
+		instance.init(ctx, app)
+		instance.Show()
 	})
 
 	go func() {
@@ -36,25 +38,23 @@ func main() {
 	}
 }
 
-type sTest struct {
+type sApplication struct {
 	*gtk.Application
 	window *gtk.ApplicationWindow
 	header *gtk.HeaderBar
 }
 
-func (t *sTest) Show() {
-	t.window.Show()
+func (this *sApplication) Show() {
+	this.window.Show()
 }
 
-func newTest(ctx context.Context, app *gtk.Application) *sTest {
+func (this *sApplication) init(ctx context.Context, app *gtk.Application) {
 	var b *gtk.Builder
 	b = gtk.NewBuilderFromString(ui, -1)
-	t := sTest{Application: app}
+	this.Application = app
 
-	t.header = gtk.NewHeaderBar()
+	this.header = gtk.NewHeaderBar()
 
-	t.window = b.GetObject("main").Cast().(*gtk.ApplicationWindow)
-	t.window.SetApplication(app)
-
-	return &t
+	this.window = b.GetObject("main").Cast().(*gtk.ApplicationWindow)
+	this.window.SetApplication(app)
 }
