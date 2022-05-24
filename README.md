@@ -3,8 +3,10 @@
 To use start with:
 
 ``` shell
-#GOTK_PROJECT="project_name" # set to init in new child directory instead of current
+GOTK_PROJECT="project_name" # set to init in new child directory instead of current
 git clone --branch=master --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_PROJECT:-.}
+cd ${GOTK_PROJECT:-.}
+git remote rm origin
 ```
 
 ## Simple minimal gtk4 + golang template with `.ui` file from [Cambalache](https://flathub.org/apps/details/ar.xjuan.Cambalache)
@@ -12,9 +14,10 @@ git clone --branch=master --depth=1 https://github.com/psydvl/gotk4-template ${G
 To use start with:
 
 ``` shell
-#GOTK_PROJECT="project_name" # set to init in new child directory instead of current
+GOTK_PROJECT="project_name" # set to init in new child directory instead of current
 git clone --branch=ui --depth=1 https://github.com/psydvl/gotk4-template ${GOTK_PROJECT:-.}
 cd ${GOTK_PROJECT:-.}
+git remote rm origin
 git branch -m ui master
 ```
 
