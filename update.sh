@@ -15,7 +15,7 @@ for BRANCH in "${array[@]}"; do
 	git commit --allow-empty -m "Init with gotk4 minimal template psydvl/gotk4-template"
 	git merge --squash --allow-unrelated-histories $CHANGELOG
 	git commit --amend --no-edit
-	git push -u origin $BRANCH --force-with-lease || true
+	git push -u origin $BRANCH --force-with-lease || true # in case no network avaliable
 done
 
 git checkout docs
