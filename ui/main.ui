@@ -1,8 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- Created with Cambalache 0.8.2 -->
+<!-- Created with Cambalache 0.10.2 -->
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="4.6"/>
   <object class="GtkApplicationWindow" id="main">
     <property name="title">Test</property>
+    <child>
+      <object class="GtkBox">
+        <property name="margin-bottom">10</property>
+        <property name="margin-end">10</property>
+        <property name="margin-start">10</property>
+        <property name="margin-top">10</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="label">Hello, world!</property>
+            <property name="wrap-mode">char</property>
+          </object>
+        </child>
+      </object>
+    </child>
   </object>
 </interface>
