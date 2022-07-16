@@ -47,7 +47,15 @@ func (this *sApplication) init(ctx context.Context, app *gtk.Application) {
 
 	this.header = gtk.NewHeaderBar()
 
+	layout := gtk.NewBox(gtk.OrientationVertical, 0)
+	layout.SetMarginStart(10)
+	layout.SetMarginTop(10)
+	layout.SetMarginEnd(10)
+	layout.SetMarginBottom(10)
+	layout.Append(gtk.NewLabel("Hello, world!"))
+
 	this.window = gtk.NewApplicationWindow(app)
 	this.window.SetTitle("Test")
 	this.window.SetTitlebar(this.header)
+	this.window.SetChild(layout)
 }
