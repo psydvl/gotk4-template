@@ -1,3 +1,9 @@
+## Screenshots with Adwaita theme
+
+| Light | Dark |
+| ----- | ---- |
+| ![](screenshot/light.png) | ![](screenshot/dark.png) |
+
 ## Simple minimal gtk4 + golang template
 
 To use start with:
